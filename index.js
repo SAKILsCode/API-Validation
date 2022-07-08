@@ -33,6 +33,34 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
   const { name, username, email } = req.body;
 
+  if (!name) {
+    return res.status(400).json({
+      error: 'Bad Request',
+      message: 'name is missing',
+    });
+  }
+
+  if (!username) {
+    return res.status(400).json({
+      error: 'Bad Request',
+      message: 'username is missing',
+    });
+  }
+
+  if (!email) {
+    return res.status(400).json({
+      error: 'Bad Request',
+      message: 'email is missing',
+    });
+  }
+
+  if (!validator.isEmail(email)) {
+    return res.status(400).json({
+      error: 'Bad Request',
+      message: 'invalid email',
+    });
+  }
+
   const names = name.split(' ');
   const firstName = names[0];
   const lastName = names[1] || '';
