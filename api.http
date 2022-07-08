@@ -7,7 +7,19 @@ POST http://localhost:4000
 Content-Type: application/json
 
 {
-  "name": "sakil bro",
-  "username": "sakilbro",
-  "email": "sakilbro@gmail.com"
+  "name": "sakil",
+  "email": "sakil123@gmail.com",
+  "password": "afdUfxxcs324df#",
+  "confirmPassword": "afdUfxxcs324df#",
+  "bio": "some dummy text as bio",
+  "addresses": [
+    {
+      "city": "Bhanga",
+      "postcode": "7830"
+    },
+    {
+      "city": "Faridpur",      "postcode": 7800
+    }
+  ],
+  "skills": "Javascript, Typescript, React, Node"
 }

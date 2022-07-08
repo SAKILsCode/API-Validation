@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon custom-validator.js"
+    "dev": "nodemon express-validator.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
