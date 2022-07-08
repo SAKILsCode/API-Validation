@@ -1,0 +1,21 @@
+{
+  "name": "API-Validation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/SAKILsCode/API-Validation",
+  "author": "MD Sakil Hasan",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.3",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
