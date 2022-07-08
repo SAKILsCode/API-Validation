@@ -86,14 +86,20 @@ const reqBodyValidator = [
     }),
 ];
 
-// Handle registration
-app.post('/', reqBodyValidator, (req, res) => {
-  const errors = validationResult(req);
-
+// Custom validation middleware
+const validate = (req, res, next) => {
+  const errorFormatter = ({ msg, param }) => {
+    return `[${param}]: ${msg}`;
+  };
+  const errors = validationResult(req).formatWith(errorFormatter);
   if (!errors.isEmpty()) {
-    return res.status(400).json(errors.array()); // errors.array() returns an array & errors.mapped() returns an object.
+    return res.status(400).json(errors.mapped());
   }
+  next();
+};
 
+// Handle registration
+app.post('/', reqBodyValidator, validate, (req, res) => {
   console.log('Request Body:');
   console.log(req.body);
   res.status(201).json({ message: 'OK' });
