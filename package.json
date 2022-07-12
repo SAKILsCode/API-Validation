@@ -7,12 +7,13 @@
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon express-validator.js"
+    "dev": "nodemon joi-validator.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "express-validator": "^6.14.2",
+    "joi": "^17.6.0",
     "mongoose": "^6.4.3",
     "morgan": "^1.10.0"
   },

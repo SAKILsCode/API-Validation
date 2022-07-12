@@ -7,6 +7,16 @@ POST http://localhost:4000
 Content-Type: application/json
 
 {
+  "name": "Sakil Bro"
+
+}
+
+###
+
+POST http://localhost:4000
+Content-Type: application/json
+
+{
   "name": "sakil",
   "email": "sakil123@gmail.com",
   "password": "afdUfxxcs324df#",
