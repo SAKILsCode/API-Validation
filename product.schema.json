@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://json-schema.org/draft-07/schema",
+  "title": "Product Schema",
+  "description": "describe a product incoming request",
+  "type": "object",
+  "properties": {
+    "productId": {
+      "description": "the unique identifier for a product",
+      "type": "string"
+    },
+    "productName": {
+      "description": "name of a product",
+      "type": "string"
+    },
+    "price": {
+      "description": "the price of the product",
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "tags": {
+      "description": "tags for the product",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "dimensions": {
+      "type": "object",
+      "properties": {
+        "length": {
+          "type": "number"
+        },
+        "width": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        }
+      },
+      "required": ["length", "width", "height"]
+    },
+    "reviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "rating": {
+            "type": "number"
+          }
+        },
+        "required": ["username", "rating"]
+      }
+    }
+  },
+  "required": ["productId", "productName", "price"]
+}
