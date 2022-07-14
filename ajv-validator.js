@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
-const Ajv = require('ajv');
+const Ajv = require('ajv/dist/jtd');
 const addFormats = require('ajv-formats');
 
 const ajv = new Ajv({ allErrors: true });
@@ -12,7 +12,7 @@ app.use([morgan('dev'), cors(), express.json()]);
 
 // handle registration
 app.post('/', (req, res) => {
-  const validate = ajv.compile(require('./registration.schema.json'));
+  const validate = ajv.compile(require('./registration.jtd.json'));
   const valid = validate(req.body);
 
   if (!valid) {

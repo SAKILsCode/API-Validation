@@ -1,0 +1,40 @@
+{
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string"
+    },
+    "confirmPassword": {
+      "type": "string"
+    }
+  },
+
+  "optionalProperties": {
+    "bio": {
+      "type": "string"
+    },
+    "addresses": {
+      "elements": {
+        "additionalProperties": true,
+        "properties": {
+          "city": {
+            "type": "string"
+          },
+          "postcode": {
+            "type": "int16"
+          }
+        }
+      }
+    },
+
+    "skills": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}
