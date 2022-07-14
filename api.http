@@ -12,7 +12,13 @@ POST http://localhost:4000
 Content-Type: application/json
 
 {
-  "name": "Sakil Bro"
+  "name": "Sakil",
+  "addresses": [
+    {
+      "city": "Bhanga",
+      "postcode": 7830
+    }
+  ]
 
 }
 

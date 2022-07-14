@@ -19,7 +19,13 @@ app.post('/', (req, res) => {
     console.log(validate.errors);
 
     const errors = validate.errors.reduce((acc, cur) => {
-      acc[cur.params.missingProperty] = cur.message;
+      if (cur.instancePath === '') {
+        acc[cur.params.missingProperty] = cur.message;
+      } else {
+        const name = cur.instancePath.split('/')[3];
+        acc[name] = `${name} ${cur.message}`;
+      }
+      console.log(cur.instancePath.split('/')[3]);
       return acc;
     }, {});
 
