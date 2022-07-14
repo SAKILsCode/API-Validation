@@ -17,7 +17,13 @@ app.post('/', (req, res) => {
 
   if (!valid) {
     console.log(validate.errors);
-    return res.status(400).json(validate.errors);
+
+    const errors = validate.errors.reduce((acc, cur) => {
+      acc[cur.params.missingProperty] = cur.message;
+      return acc;
+    }, {});
+
+    return res.status(400).json(errors);
   }
   res.status(203).json({ message: 'OK' });
 });
