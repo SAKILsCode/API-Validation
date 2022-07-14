@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://someting.com/draft-07/schema",
+  "title": "User registration Schema",
+  "description": "this schema will validate user registration incoming request body",
+  "type": "object",
+
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 30
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "password": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 30
+    },
+    "confirmPassword": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 30
+    },
+    "bio": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 300
+    },
+    "addresses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string"
+          },
+          "postcode": {
+            "type": "number"
+          }
+        },
+        "required": ["city", "postcode"]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+
+    "skills": {
+      "type": "string"
+    }
+  },
+  "required": ["name", "email", "password", "confirmPassword"]
+}
